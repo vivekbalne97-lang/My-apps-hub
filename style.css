@@ -1,0 +1,305 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.container {
+    max-width: 900px;
+    width: 100%;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.subtitle {
+    text-align: center;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.app-btn {
+    padding: 20px 24px;
+  border-radius: 99px; 
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #60a5fa, #38bdf8);
+  color: #020617;
+  font-weight: 600;
+  transition: 
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease;
+  box-shadow:
+    0 8px 20px rgba(56, 189, 248, 0.35),
+    inset 12px 6px 12px rgba(255, 255, 255, 0.6);
+}
+
+/* Hover = fluffy lift */
+.app-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow:
+    0 14px 28px rgba(56, 189, 248, 0.45),
+    inset 0 2px 6px rgba(255, 255, 255, 0.7);
+  filter: brightness(1.05);
+}
+
+.app-btn:active {
+  transform: translateY(0) scale(0.96);
+  box-shadow:
+    0 6px 14px rgba(56, 189, 248, 0.35),
+    inset 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.app-section {
+  display: none;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+}
+
+.app-section h2 {
+    margin-top: 0;
+}
+
+/* To-do basic styling */
+.todo input {
+    padding: 10px;
+  width: 70%;
+  border-radius: 6px;
+  border: none;
+}
+
+.todo button {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.todo ul {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+/* to do list styling closes here */
+/* clock section styling   */
+.clock-container {
+  background: rgba(255,255,255,0.08);
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.clock {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+}
+
+.time {
+  font-size: 64px;
+  font-weight: 600;
+  color: #38bdf8;
+  letter-spacing: 2px;
+}
+
+.seconds {
+  font-size: 24px;
+  color: #e5e7eb;
+}
+
+.label {
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+/* stopwatch styles */
+.stopwatch-container {
+  background: rgba(255,255,255,0.08);
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  text-align: center;
+}
+.stopwatch-time {
+  font-size: 48px;
+  font-weight: 600;
+  color: #60a5fa;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.stopwatch-buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #38bdf8;
+  color: #020617;
+  font-weight: 600;
+  transition: background 0.2s ease;
+} 
+.stopwatch-buttons button:hover {
+  background: #0ea5e9;
+}
+/* password generator styles */
+.password-box { 
+  background: rgba(255,255,255,0.08);
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  text-align: center;
+}
+.password-box input {
+  padding: 10px;
+  width: 60%;
+  border-radius: 6px;
+  border: none;
+  margin-right: 10px;
+}
+.password-box button {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #38bdf8;
+  color: #020617;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+.password-box button:hover {
+  background: #0ea5e9;
+}
+.generated-password {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #60a5fa;
+  word-break: break-all;
+}
+/* colour-picker styles */
+.color-picker-container {   
+  background: rgba(255,255,255,0.08);
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  text-align: center;
+}
+#colorValue {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #60a5fa;
+}
+#colorPicker {
+  block-size: 50px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 10px;
+  cursor: pointer;
+}
+/* Word Counter styles */
+#wordCount {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #60a5fa;
+}
+#wordInput {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  resize: vertical;
+}
+/* expense-tracker styles */
+.expense-tracker-container {
+  background: rgba(255,255,255,0.08);
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  text-align: center;
+}
+/* Snow container */
+.snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; 
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* Each snowflake */
+.snow span {
+  position: absolute;
+  top: -10px;
+  width: 8px;
+  height: 8px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  opacity: 0.8;
+  filter: blur(0.5px);
+  animation: fall linear infinite;
+}
+
+/* Different positions, sizes, speeds */
+.snow span:nth-child(1)  { left: 5%;  width: 4px; height: 4px; animation-duration: 10s; animation-delay: 0s; }
+.snow span:nth-child(2)  { left: 15%; width: 6px; height: 6px; animation-duration: 12s; animation-delay: 2s; }
+.snow span:nth-child(3)  { left: 25%; width: 3px; height: 3px; animation-duration: 8s;  animation-delay: 4s; }
+.snow span:nth-child(4)  { left: 35%; width: 7px; height: 7px; animation-duration: 14s; animation-delay: 1s; }
+.snow span:nth-child(5)  { left: 45%; width: 5px; height: 5px; animation-duration: 11s; animation-delay: 3s; }
+.snow span:nth-child(6)  { left: 55%; width: 4px; height: 4px; animation-duration: 9s;  animation-delay: 5s; }
+.snow span:nth-child(7)  { left: 65%; width: 6px; height: 6px; animation-duration: 13s; animation-delay: 2s; }
+.snow span:nth-child(8)  { left: 75%; width: 3px; height: 3px; animation-duration: 7s;  animation-delay: 6s; }
+.snow span:nth-child(9)  { left: 85%; width: 5px; height: 5px; animation-duration: 10s; animation-delay: 1s; }
+.snow span:nth-child(10) { left: 95%; width: 4px; height: 4px; animation-duration: 12s; animation-delay: 4s; }
+.snow span:nth-child(11) { left: 10%; width: 3px; height: 3px; animation-duration: 9s;  animation-delay: 7s; }
+.snow span:nth-child(12) { left: 30%; width: 6px; height: 6px; animation-duration: 15s; animation-delay: 3s; }
+.snow span:nth-child(13) { left: 50%; width: 4px; height: 4px; animation-duration: 11s; animation-delay: 6s; }
+.snow span:nth-child(14) { left: 70%; width: 5px; height: 5px; animation-duration: 13s; animation-delay: 5s; }
+.snow span:nth-child(15) { left: 90%; width: 3px; height: 3px; animation-duration: 8s;  animation-delay: 2s; }
+
+
+
+/* Falling animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(110vh);
+  }
+}
+

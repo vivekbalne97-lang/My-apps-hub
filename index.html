@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -271,3 +272,281 @@ wordInput.addEventListener('input', function() {
     wordCountDisplay.textContent = `Word Count: ${words}`;
 });
   </script>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Apps Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🚀 My Apps</h1>
+    <p class="subtitle">All my small apps in one place</p>
+
+    <div class="buttons">
+      <button class="app-btn" onclick="openApp('calculator')">🧮 Calculator</button>
+      <button class="app-btn" onclick="openApp('todo')"> 📝To-Do List</button>
+      <button class="app-btn" onclick="openApp('Clock')">⏰ Clock</button>
+      <button class="app-btn" onclick="openApp('stopwatch')">⌚ Stopwatch</button>
+      <button class="app-btn" onclick="openApp('password')"> 🔐 Password Generator</button>
+      <button class="app-btn" onclick="openApp('Colour-Picker')">🎨 Colour Picker</button>
+      <button class="app-btn" onclick="openApp('Word')">📝 Word Counter</button>
+      <button class="app-btn" onclick="openApp('Expense Tracker')">💰 Expense Tracker</button>
+      <button class="app-btn" onclick="openApp('coming-soon')">➕ Coming Soon</button>
+    </div>
+
+    <!-- Calculator App code here-->
+    <div id="calculator" class="app-section">
+      <h2> Calculator</h2>
+      <div>
+        <input type="text" id="calcDisplay" readonly />
+        <br><br>
+        <div>
+          <button onclick="press('7')">7</button>
+          <button onclick="press('8')">8</button>
+          <button onclick="press('9')">9</button>
+          <button onclick="press('/')">/</button>
+        </div>
+        <div>
+          <button onclick="press('4')">4</button>
+          <button onclick="press('5')">5</button>
+          <button onclick="press('6')">6</button>
+          <button onclick="press('*')">*</button>
+        </div>
+        <div>
+          <button onclick="press('1')">1</button>
+          <button onclick="press('2')">2</button>
+          <button onclick="press('3')">3</button>
+          <button onclick="press('-')">-</button>
+        </div>
+        <div>
+          <button onclick="press('0')">0</button>
+          <button onclick="press('.')">.</button>
+          <button onclick="calculate()">=</button>
+          <button onclick="press('+')">+</button>
+        </div>
+        <br>
+        <button onclick="clearCalc()">Clear</button>
+      </div>
+    </div>
+
+    <!-- To-Do App code here -->
+    <div id="todo" class="app-section">
+      <h2>📝 To-Do List</h2>
+      <div class="todo">
+        <input type="text" id="todoInput" placeholder="Enter a task..." />
+        <button onclick="addTodo()">Add</button>
+        <ul id="todoList"></ul>
+      </div>
+    </div>
+  </div>
+  <!-- Clock App code here -->
+<div id="Clock" class="app-section">
+  <h2>⏰ Clock</h2>
+  <div class="clock-box">
+      <div id="clockTime" class="clock-time">00:00:00</div>
+      <div id="clockDate" class="clock-date">Loading date...</div>
+  </div>
+</div>
+<!-- stop watch code here -->
+<div id="stopwatch" class="app-section">
+  <h2>⌚ Stopwatch</h2>
+  <div class="stopwatch-box">
+    <div id="stopwatchTime" class="stopwatch-time">00:00:00</div>
+    <button id="startStopBtn">Start</button>
+    <button id="resetBtn">Reset</button>
+</div>
+</div>
+<!-- password generator code here -->
+ <div id="password" class="app-section">
+  <h2>🔐 Password Generator</h2>
+    <div class="password-box">
+        <input type="text" id="passwordLength" placeholder="Length (e.g. 12)" />
+        <button onclick="generatePassword()">Generate</button>
+        <div id="generatedPassword" class="generated-password"></div>
+        </div>
+</div>
+<!-- Colour Picker App code here -->
+<div id="Colour-Picker" class="app-section">
+  <h2>🎨 Colour Picker</h2>
+  <input type="color" id="colorPicker" value="#0000ff">
+  <div id="colorValue"></div>
+</div>
+<!-- Word Counter App code here -->
+<div id="Word" class="app-section">
+  <h2>📝 Word Counter</h2>
+  <textarea id="wordInput" rows="10" cols="50" placeholder="Type or paste your text here..."></textarea>
+  <div id="wordCount">Word Count: 0</div>
+</div>
+<!-- expense tracker code here -->
+<div id="Expense Tracker" class="app-section">  
+  <h2>💰 Expense Tracker</h2>
+    <p>Coming soon...</p>
+    </div>
+    
+
+<!-- snow effect code start from here -->
+<div class="snow">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</body>
+</html>
+<!-- scriptstarts from here -->
+  <script>
+    function openApp(appId) {
+      document.querySelectorAll('.app-section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(appId).style.display = 'block';
+    }
+
+    // Calculator logic
+    const display = document.getElementById('calcDisplay');
+
+    function press(val) {
+      display.value += val;
+    }
+
+    function clearCalc() {
+      display.value = '';
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = 'Error';
+      }
+    }
+
+    // To-do logic
+    function addTodo() {
+      const input = document.getElementById('todoInput');
+      if (input.value.trim() === '') return;
+
+      const li = document.createElement('li');
+      li.textContent = input.value;
+      li.onclick = () => li.remove();
+      document.getElementById('todoList').appendChild(li);
+
+      input.value = '';
+    }
+//    clock code logic
+  function updateClock() {
+    const now = new Date();
+
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    const timeString = hours + ":" + minutes + ":" + seconds;
+
+    const dateString = now.toDateString();
+
+    const timeEl = document.getElementById("clockTime");
+    const dateEl = document.getElementById("clockDate");
+
+    if (timeEl && dateEl) {
+      timeEl.textContent = timeString;
+      dateEl.textContent = dateString;
+    }
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+// stop watch code logic
+let stopwatchInterval;
+let elapsedTime = 0; 
+const stopwatchTimeEl = document.getElementById('stopwatchTime'); 
+const startStopBtn = document.getElementById('startStopBtn');
+const resetBtn = document.getElementById('resetBtn');
+function updateStopwatch() {
+    const hours = Math.floor(elapsedTime / 3600000);
+    const minutes = Math.floor((elapsedTime % 3600000) / 60000);
+    const seconds = Math.floor((elapsedTime % 60000) / 1000);
+    const hoursStr = hours < 10 ? "0" + hours : hours;
+    const minutesStr = minutes < 10 ? "0" + minutes : minutes;
+    const secondsStr = seconds < 10 ? "0" + seconds : seconds;
+    stopwatchTimeEl.textContent = `${hoursStr}:${minutesStr}:${secondsStr}`;
+}
+startStopBtn.onclick = function() {
+    if (stopwatchInterval) {
+        clearInterval(stopwatchInterval);
+        stopwatchInterval = null;
+        startStopBtn.textContent = 'Start';
+    } else {
+        const startTime = Date.now() - elapsedTime;
+        stopwatchInterval = setInterval(function() {
+            elapsedTime = Date.now() - startTime;
+            updateStopwatch();
+        }, 1000);
+        startStopBtn.textContent = 'Stop';
+    }
+};
+resetBtn.onclick = function() {
+    clearInterval(stopwatchInterval);
+    stopwatchInterval = null;
+    elapsedTime = 0;
+    updateStopwatch();
+    startStopBtn.textContent = 'Start';
+};
+// password generator code logic
+function generatePassword() {
+    const lengthInput = document.getElementById('passwordLength');
+    const length = parseInt(lengthInput.value);
+    if (isNaN(length) || length <= 0) {
+        alert('Please enter a valid length');
+        return;
+    }
+
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+    let password = "";
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * charset.length);
+        password += charset[randomIndex];
+    }
+
+    const passwordDisplay = document.getElementById('generatedPassword');
+    passwordDisplay.textContent = password;
+}
+// colour picker code logic
+const colorPicker = document.getElementById('colorPicker');
+const colorValue = document.getElementById('colorValue');
+colorPicker.addEventListener('input', function() {
+    colorValue.textContent = `Selected Color: ${colorPicker.value}`;
+    colorValue.style.color = colorPicker.value;
+});
+// word counter code logic
+const wordInput = document.getElementById('wordInput');
+const wordCountDisplay = document.getElementById('wordCount');
+wordInput.addEventListener('input', function() {
+    const text = wordInput.value.trim();
+    const words = text === '' ? 0 : text.split(/\s+/).length;
+    wordCountDisplay.textContent = `Word Count: ${words}`;
+});
+  </script>
+
